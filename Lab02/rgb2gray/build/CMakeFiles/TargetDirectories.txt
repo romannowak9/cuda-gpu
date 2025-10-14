@@ -1,0 +1,5 @@
+/home/lsriw/Documents/411270/cuda-gpu/Lab02/rgb2gray/build/CMakeFiles/image.dir
+/home/lsriw/Documents/411270/cuda-gpu/Lab02/rgb2gray/build/CMakeFiles/rgb2gray.out.dir
+/home/lsriw/Documents/411270/cuda-gpu/Lab02/rgb2gray/build/CMakeFiles/image_diff.out.dir
+/home/lsriw/Documents/411270/cuda-gpu/Lab02/rgb2gray/build/CMakeFiles/edit_cache.dir
+/home/lsriw/Documents/411270/cuda-gpu/Lab02/rgb2gray/build/CMakeFiles/rebuild_cache.dir
