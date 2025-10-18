@@ -2,10 +2,25 @@
 
 __global__ void multMatrixVector(float *b, float *A, float *x, unsigned int nrows, unsigned int ncols)
 {
+    const int row = threadIdx.x + blockIdx.x * blockDim.x;
+    // Inside full context space
+    if (row < nrows) {
+        float sum = 0.0f;
+        const unsigned int base = row * ncols;
+        for (unsigned int col = 0; col < ncols; ++col)
+            sum += A[base + col] * x[col];
+            
+        b[row] = sum;
+    }
 }
 
 Matrix multMatrixVectorOnDevice(const Matrix &A, const Matrix &x)
 {
+    if (A.getCols() != x.getRows())
+    {
+        throw std::runtime_error("Matrix and vector dimensions do not match for multiplication.");
+    }
+
     Matrix outMatrix(A.getRows(), x.getCols());
 
     // allocate input and output in the device
@@ -21,17 +36,18 @@ Matrix multMatrixVectorOnDevice(const Matrix &A, const Matrix &x)
     cudaMemcpy(d_A, A.getDataConstPtr(), A.getRows() * A.getCols() * sizeof(float), cudaMemcpyHostToDevice);
     cudaMemcpy(d_x, x.getDataConstPtr(), x.getRows() * x.getCols() * sizeof(float), cudaMemcpyHostToDevice);
 
-    float blockSize = 1024.0f;
-    int gridSize = ceil(A.getRows() / blockSize)
+    int blockSize = 1024;  // Maksimum block size on device
+    int gridSize = (A.getRows() + blockSize - 1) / blockSize;
 
-    blurKernel<<<dimGrid, dimBlock>>>(d_outputImage, d_inputImage, outputImage.getCols(), outputImage.getRows(), blurSize);
+    multMatrixVector<<<gridSize, blockSize>>>(d_outMatrix, d_A, d_x, A.getRows(), A.getCols());
 
-    cudaMemcpy(outputImage.getDataPtr(), d_outputImage, outputImage.getRows() * outputImage.getCols() * sizeof(float), cudaMemcpyDeviceToHost);
+    cudaMemcpy(outMatrix.getDataPtr(), d_outMatrix, outMatrix.getRows() * outMatrix.getCols() * sizeof(float), cudaMemcpyDeviceToHost);
 
-    cudaFree(d_inputImage);
-    cudaFree(d_outputImage);
+    cudaFree(d_A);
+    cudaFree(d_x);
+    cudaFree(d_outMatrix);
 
-    return outputImage;
+    return outMatrix;
 }
 
 Matrix multMatrixVectorOnHost(const Matrix &A, const Matrix &x)
