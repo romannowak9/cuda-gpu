@@ -1,0 +1,2 @@
+/usr/bin/ar qc libmatrix.a "CMakeFiles/matrix.dir/home/lsriw/Documents/411270/cuda-gpu/Lab03/utils/matrix.cc.o"
+/usr/bin/ranlib libmatrix.a

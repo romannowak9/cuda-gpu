@@ -1,0 +1,4 @@
+/home/lsriw/Documents/411270/cuda-gpu/CUDA_Lab04/histogram/build/CMakeFiles/histogram.dir
+/home/lsriw/Documents/411270/cuda-gpu/CUDA_Lab04/histogram/build/CMakeFiles/histogram_main.out.dir
+/home/lsriw/Documents/411270/cuda-gpu/CUDA_Lab04/histogram/build/CMakeFiles/edit_cache.dir
+/home/lsriw/Documents/411270/cuda-gpu/CUDA_Lab04/histogram/build/CMakeFiles/rebuild_cache.dir

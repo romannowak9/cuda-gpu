@@ -1,0 +1,7 @@
+/home/lsriw/Documents/411270/cuda-gpu/Lab03/mult-mm/build/CMakeFiles/matrix.dir
+/home/lsriw/Documents/411270/cuda-gpu/Lab03/mult-mm/build/CMakeFiles/mult_mm.dir
+/home/lsriw/Documents/411270/cuda-gpu/Lab03/mult-mm/build/CMakeFiles/mult_mm_main.out.dir
+/home/lsriw/Documents/411270/cuda-gpu/Lab03/mult-mm/build/CMakeFiles/mult_mm_granular_main.out.dir
+/home/lsriw/Documents/411270/cuda-gpu/Lab03/mult-mm/build/CMakeFiles/testcase_generator.out.dir
+/home/lsriw/Documents/411270/cuda-gpu/Lab03/mult-mm/build/CMakeFiles/edit_cache.dir
+/home/lsriw/Documents/411270/cuda-gpu/Lab03/mult-mm/build/CMakeFiles/rebuild_cache.dir
